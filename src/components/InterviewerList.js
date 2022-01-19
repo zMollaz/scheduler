@@ -6,8 +6,7 @@ function InterviewerList(props) {
   const { interviewers, interviewer, setInterviewer } = props;
   const parsedInterviewers = interviewers.map((oneInterviewer) => (
     <InterviewerListItem
-      setInterviewer={setInterviewer}
-      id={oneInterviewer.id}
+      setInterviewer={()=> setInterviewer(oneInterviewer.id)}
       name={oneInterviewer.name}
       avatar={oneInterviewer.avatar}
       key={oneInterviewer.id}
