@@ -2,12 +2,12 @@ import React from "react";
 import DayListItem from "./DayListItem";
 
 function DayList(props) {
-  const { days, day, setDay } = props;
+  const { days, value, onChange } = props;
   const parsedDays = days.map((oneDay) => 
     <DayListItem 
     {...oneDay}
-    selected={day === oneDay.name}
-    setDay={setDay}
+    selected={oneDay.name === value}
+    setDay={onChange}
     key={oneDay.id}
     />
   );
