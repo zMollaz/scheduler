@@ -12,6 +12,7 @@ import InterviewerListItem from "components/InterviewerListItem";
 import InterviewerList from "components/InterviewerList";
 import Appointment from "components/Appointment";
 import Header from "components/Appointment/Header";
+import Empty from "components/Appointment/Empty";
 
 //Stories for button
 storiesOf("Button", module)
@@ -141,3 +142,4 @@ storiesOf("Appointment", module)
   .add("Appointment", () => <Appointment />)
   .add("Appointment with Time", () => <Appointment time="12pm" />)
   .add("Header", () => <Header time="12pm"/>)
+  .add("Empty", () => (<Empty onAdd={action("onAdd")}/>))
