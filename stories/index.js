@@ -13,7 +13,8 @@ import InterviewerList from "components/InterviewerList";
 import Appointment from "components/Appointment";
 import Header from "components/Appointment/Header";
 import Empty from "components/Appointment/Empty";
-import Show from "components/Appointment/show";
+import Show from "components/Appointment/Show";
+import Confirm from "components/Appointment/Confirm";
 
 //Stories for button
 storiesOf("Button", module)
@@ -138,12 +139,24 @@ storiesOf("InterviewerList", module)
 //Stories for Appointment
 storiesOf("Appointment", module)
   .addParameters({
-    backgrounds: [{ name: "white", value: "#fff", default: true }]
+    backgrounds: [{ name: "white", value: "#fff", default: true }],
   })
   .add("Appointment", () => <Appointment />)
   .add("Appointment with Time", () => <Appointment time="12pm" />)
-  .add("Header", () => <Header time="12pm"/>)
-  .add("Empty", () => (<Empty onAdd={action("onAdd")}/>))
-  .add("Show", () => (<Show onEdit={action("onEdit")} 
-    onDelete={action("onDelete")} student="Lydia Miller-Jones"
-    interviewer={interviewer.name}/>))
+  .add("Header", () => <Header time="12pm" />)
+  .add("Empty", () => <Empty onAdd={action("onAdd")} />)
+  .add("Show", () => (
+    <Show
+      onEdit={action("onEdit")}
+      onDelete={action("onDelete")}
+      student="Lydia Miller-Jones"
+      interviewer={interviewer.name}
+    />
+  ))
+  .add("Confirm", () => (
+    <Confirm
+      message="Delete the appointment?"
+      onConfirm={action("onConfirm")}
+      onCancel={action("onCancel")}
+    />
+  ))
