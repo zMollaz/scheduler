@@ -17,8 +17,7 @@ const useVisualMode = (initial) => {
       setMode(history[history.length - 1]);
     }
   }
-
-
+  
   return {
     mode,
     transition,
