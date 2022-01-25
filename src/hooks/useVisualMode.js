@@ -7,23 +7,21 @@ const useVisualMode = (initial) => {
     if (!replace) {
       setHistory((prev) => [...prev, newMode]);
     }
-    
+
     setMode(newMode);
-    
-  }
+  };
   const back = () => {
     if (history.length > 1) {
       history.pop();
       setMode(history[history.length - 1]);
     }
-  }
-  
+  };
+
   return {
     mode,
     transition,
-    back
+    back,
   };
 };
-
 
 export default useVisualMode;
