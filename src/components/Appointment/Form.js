@@ -3,25 +3,30 @@ import InterviewerList from "components/InterviewerList";
 import Button from "components/Button";
 
 const Form = (props) => {
+  //Form states
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   const [error, setError] = useState("");
 
+  //Clears the student name input form & unselects interviewersList
   const reset = () => {
     setStudent("");
     setInterviewer(null);
   };
 
+  //Clears the form & gets back to previous form view
   const cancel = () => {
     reset();
     props.onCancel();
   };
 
+  //Checks that student name is not empty
   const validate = () => {
     if (student === "") {
       setError("Student name cannot be blank");
       return;
     }
+
     setError("");
     props.onSave(student, interviewer);
   };

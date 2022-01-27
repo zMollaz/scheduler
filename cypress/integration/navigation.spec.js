@@ -3,6 +3,7 @@ describe("Navigation", () => {
     cy.visit("/");
   });
 
+  //Test case for root endpoint navigation
   it("should navigate to Tuesday", () => {
     cy.visit("/");
     cy.contains("[data-testid=day]", "Tuesday")

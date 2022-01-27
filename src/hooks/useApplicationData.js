@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+//Custom hook to manage stateful data & ajax requests  
 const useApplicationData = () => {
   const [state, setState] = useState({
     day: "Monday",
@@ -9,12 +10,14 @@ const useApplicationData = () => {
     interviewers: {},
   });
 
+  //Renders updated no of spots accordingly
   const updateSpots = () => {
     axios.get("/api/days").then((response) => {
       setState((prev) => ({ ...prev, days: response.data }));
     });
   };
 
+  //Creates new appointment object & sends it to server
   const bookInterview = (id, interview) => {
     const appointment = {
       ...state.appointments[id],
@@ -31,6 +34,8 @@ const useApplicationData = () => {
     });
   };
 
+  //Deletes an appointment by changing it to null using appointment id 
+  // & updates the db
   const cancelInterview = (id) => {
     const appointment = {
       ...state.appointments[id],
@@ -47,8 +52,10 @@ const useApplicationData = () => {
     });
   };
 
+  //State setter
   const setDay = (day) => setState((prev) => ({ ...prev, day }));
 
+  //Fetches all the required data once when loading up the root endpoint
   useEffect(() => {
     Promise.all([
       axios.get("/api/days"),

@@ -22,9 +22,10 @@ const ERROR_DELETE = "ERROR_DELETE";
 function Appointment(props) {
   const { id, time, interview, interviewers, bookInterview, cancelInterview } =
     props;
-
+  //Custom hook to render appointments
   const { mode, transition, back } = useVisualMode(interview ? SHOW : EMPTY);
 
+  //Creates new interview object & renders relevant views
   const save = (name, interviewer) => {
     const interview = {
       student: name,
@@ -36,6 +37,7 @@ function Appointment(props) {
       .catch(() => transition(ERROR_SAVE, true));
   };
 
+  //Deletes existing interview & renders relevant views
   const onDelete = (id) => {
     transition(DELETING, true);
     cancelInterview(id)
@@ -60,7 +62,6 @@ function Appointment(props) {
           interviewers={interviewers}
           onCancel={back}
           onSave={save}
-          // bookInterview={bookInterview} delete this
         />
       )}
       {mode === EDIT && (
@@ -70,7 +71,6 @@ function Appointment(props) {
           interviewers={interviewers}
           onCancel={back}
           onSave={save}
-          // bookInterview={bookInterview} delete this
         />
       )}
       {mode === SAVING && <Status message="Saving" />}

@@ -1,4 +1,8 @@
-import { getAppointmentsForDay, getInterviewersForDay, getInterview } from "helpers/selectors";
+import {
+  getAppointmentsForDay,
+  getInterviewersForDay,
+  getInterview,
+} from "helpers/selectors";
 
 //Mock data for tests
 const state = {
@@ -105,7 +109,7 @@ test("getInterviewersForDay returns an array with a length matching the number o
 
 test("getInterviewersForDay returns an array containing the correct appointment objects", () => {
   const [first, second] = getInterviewersForDay(state, "Tuesday");
-  expect(first).toEqual(state.interviewers["2"]); 
+  expect(first).toEqual(state.interviewers["2"]);
   expect(second).toEqual(state.interviewers["3"]);
 });
 
