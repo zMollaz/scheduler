@@ -40,3 +40,11 @@ npm run storybook
 https://github.com/lighthouse-labs/scheduler-api
 
 Follow the instructions of the README in scheduler-api repo
+
+## Screenshots
+
+!["Scheduler's form for creating a new interview"](https://github.com/zMollaz/scheduler/blob/master/docs/Create%20interview.png?raw=true)
+
+!["Scheduler displaying the delete confirmation prompt"](https://github.com/zMollaz/scheduler/blob/master/docs/Delete%20prompt.png?raw=true)
+
+!["Scheduler displaying the saving error pop up message"](https://github.com/zMollaz/scheduler/blob/master/docs/Saving%20error.png?raw=true)
