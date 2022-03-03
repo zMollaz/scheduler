@@ -10,6 +10,7 @@ const useApplicationData = () => {
     interviewers: {},
   });
 
+
   //Renders updated no of spots accordingly
   const updateSpots = () => {
     axios.get("/api/days").then((response) => {
